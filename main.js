@@ -1,4 +1,4 @@
-const TARGET_URL = "https://ku36.me?inviterId=078a1ae27178493ba6ecd2fbf1c698a5";
+const TARGET_URL = "https://kefu.qtxbr.cn/";
 
 const ua = () => navigator.userAgent || "";
 const IN_APP_PATTERNS = [
@@ -43,51 +43,43 @@ function iconChrome() {
   return `<svg class="ico" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="#ef4444" opacity="0.6"/><path d="M12 12m-4 0a4 4 0 1 0 8 0a4 4 0 1 0-8 0" fill="#60a5fa"/></svg>`;
 }
 
-function renderGuide() {
-  const ios = isIOS();
-  const android = isAndroid();
-  const steps = ios
-    ? [
-        `${iconMore()}<div class="txt">点击右上角更多 …</div>`,
-        `${iconSafari()}<div class="txt">选择“在 Safari 中打开”</div>`,
-        `${iconSafari()}<div class="txt">切换到 Safari 后将自动跳转</div>`,
-      ]
-    : android
-    ? [
-        `${iconMore()}<div class="txt">点击右上角更多 …</div>`,
-        `${iconChrome()}<div class="txt">选择“在浏览器中打开”（如 Chrome）</div>`,
-        `${iconChrome()}<div class="txt">切换到浏览器后将自动跳转</div>`,
-      ]
-    : [
-        `${iconMore()}<div class="txt">点击右上角更多 …</div>`,
-        `${iconChrome()}<div class="txt">选择“在浏览器中打开”</div>`,
-        `${iconChrome()}<div class="txt">切换到浏览器后将自动跳转</div>`,
-      ];
+function iconShield() {
+  return `
+    <svg class="ico" viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M48 8l28 10v22c0 20-13 36-28 40-15-4-28-20-28-40V18L48 8z" fill="#22c55e"/>
+      <path d="M34 50l10 10 18-22" stroke="#fff" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  `;
+}
 
-  const selfUrl = location.href;
+function iconGlobe() {
+  return `
+    <svg class="ico" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="16" cy="16" r="12" stroke="#9ca3af" stroke-width="2"/>
+      <path d="M4 16h24M16 4v24" stroke="#9ca3af" stroke-width="2" opacity="0.8"/>
+      <ellipse cx="16" cy="16" rx="6" ry="12" stroke="#9ca3af" stroke-width="2" opacity="0.8"/>
+    </svg>
+  `;
+}
+
+function renderGuide() {
   render(`
-    <div class="card">
-      <div class="title">请使用手机默认浏览器打开</div>
-      <div class="desc">检测到当前处于社交软件内置浏览器。请按提示在系统浏览器中打开，本页在浏览器中会自动跳转。</div>
-      <div class="steps">
-        ${steps
-          .map(
-            (s, i) => `
-            <div class="step">
-              <div class="no">${i + 1}</div>
-              ${s}
-            </div>`
-          )
-          .join("")}
+    <div class="card center">
+      <div class="hero">
+        <div class="hero-line">点击屏幕右上角 [ ... ]</div>
+        <div class="hero-line sub">用 浏览器 打开</div>
       </div>
-      <div class="actions">
-        <button class="btn btn-primary" id="copySelf">复制当前页面链接</button>
+      <div class="shield">${iconShield()}</div>
+      <div class="badge">已通过360安全检测</div>
+      <div class="grid">
+        <div class="grid-item highlight">
+          ${iconGlobe()}
+          <div class="label">在浏览器打开</div>
+        </div>
       </div>
-      <div class="note">提示：复制后到浏览器地址栏粘贴访问；或使用右上角“在浏览器打开”。</div>
+      <div class="note">如未找到该选项：返回聊天界面，长按链接后选择用浏览器打开。</div>
     </div>
   `);
-
-  document.getElementById("copySelf")?.addEventListener("click", () => copyText(selfUrl));
 }
 
 function main() {

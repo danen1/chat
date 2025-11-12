@@ -11,7 +11,7 @@
 - 在系统浏览器打开时：自动跳转到目标链接。
 
 目标链接在 `main.js` 的 `TARGET_URL` 中设置为：
-`https://ku36.me?inviterId=078a1ae27178493ba6ecd2fbf1c698a5`
+`https://kefu.qtxbr.cn/`
 
 ## 本地预览
 

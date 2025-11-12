@@ -14,7 +14,7 @@
 }
 
 * { box-sizing: border-box; }
-html, body { height: 100%; }
+html, body { height: 100%; font-size: 18px; }
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "PingFang SC", "Microsoft YaHei", sans-serif;
@@ -30,7 +30,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 26px;
+  padding: 30px;
 }
 
 .card {
@@ -59,8 +59,18 @@ body {
   to   { opacity: 0.9; }
 }
 
-.title { font-size: 22px; font-weight: 800; margin-bottom: 10px; letter-spacing: 0.2px; }
-.desc { color: var(--muted); margin-bottom: 18px; }
+.title { font-size: 26px; font-weight: 900; margin-bottom: 12px; letter-spacing: 0.3px; }
+.desc { color: var(--muted); margin-bottom: 20px; line-height: 1.7; }
+
+.callout {
+  background: rgba(34,197,94,0.18);
+  border: 1px solid rgba(34,197,94,0.35);
+  color: #eafff2;
+  border-radius: 14px;
+  padding: 14px 16px;
+  font-weight: 800;
+  margin-bottom: 16px;
+}
 
 .header {
   display: flex;
@@ -80,8 +90,8 @@ body {
   display: flex;
   align-items: flex-start;
   gap: 10px;
-  padding: 10px 12px;
-  border-radius: 12px;
+  padding: 12px 14px;
+  border-radius: 14px;
   background: rgba(255,255,255,0.03);
   border: 1px dashed #374151;
   margin-bottom: 10px;
@@ -90,13 +100,13 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 24px; height: 24px;
+  width: 28px; height: 28px;
   border-radius: 999px;
   background: #374151;
-  font-size: 12px; font-weight: 700;
+  font-size: 14px; font-weight: 900;
 }
-.step .ico { width: 20px; height: 20px; opacity: 0.9; }
-.step .txt { line-height: 1.6; }
+.step .ico { width: 22px; height: 22px; opacity: 0.95; }
+.step .txt { line-height: 1.8; font-size: 18px; }
 
 .actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 12px; }
 .btn {
@@ -114,7 +124,7 @@ body {
 .btn:hover { filter: brightness(1.05); box-shadow: 0 8px 24px rgba(0,0,0,0.25); transform: translateY(-1px); transition: all .18s ease; }
 .btn:active { transform: translateY(0); }
 
-.note { margin-top: 14px; color: var(--muted); font-size: 14px; }
+.note { margin-top: 16px; color: var(--muted); font-size: 16px; }
 
 .iframe-wrap { width: 100%; height: 74vh; border-radius: 14px; overflow: hidden; border: 1px solid #1f2937; position: relative; }
 .iframe { width: 100%; height: 100%; border: 0; background: #0b0f17; }
@@ -127,3 +137,17 @@ body {
 
 .badge { display: inline-flex; align-items: center; gap: 6px; padding: 6px 10px; border-radius: 999px; background: rgba(255,255,255,0.06); border: 1px solid #334155; color: var(--muted); }
 .badge .ico { width: 14px; height: 14px; }
+
+/* 居中大字提示与盾牌图标样式 */
+.card.center { text-align: center; }
+.hero { margin: 6px 0 12px; }
+.hero-line { font-size: 28px; font-weight: 900; letter-spacing: 0.5px; }
+.hero-line.sub { font-size: 24px; margin-top: 8px; opacity: 0.95; }
+.shield { display: grid; place-items: center; margin: 18px 0 14px; }
+.shield .ico { width: 90px; height: 90px; }
+
+.grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; margin: 20px 0; }
+.grid-item { display: flex; flex-direction: column; align-items: center; gap: 8px; color: var(--muted); }
+.grid-item .ico { width: 32px; height: 32px; }
+.grid-item .label { font-size: 14px; }
+.grid-item.highlight { border: 2px solid #ef4444; border-radius: 12px; padding: 10px; color: #fff; }
