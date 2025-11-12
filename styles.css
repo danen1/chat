@@ -13,6 +13,10 @@
   --accent-2: #34d399;
   --warn: #f59e0b;
   --info: #3b82f6;
+  /* 高亮项（浅色主题） */
+  --hl-bg: #fff5f5;          /* 淡红背景，保证对比度 */
+  --hl-border: #ef4444;      /* 红色边框 */
+  --hl-text: #b91c1c;        /* 深红文字，浅色背景可读 */
 }
 
 /* 深色主题覆盖：跟随系统深色模式 */
@@ -27,6 +31,10 @@
     --text: #e5e7eb;
     --muted: #9ca3af;
     --info: #60a5fa;
+    /* 高亮项（深色主题） */
+    --hl-bg: rgba(239,68,68,0.16);
+    --hl-border: #ef4444;
+    --hl-text: #ffffff;
   }
 }
 
@@ -167,4 +175,5 @@ body {
 .grid-item { display: flex; flex-direction: column; align-items: center; gap: 8px; color: var(--muted); }
 .grid-item .ico { width: 32px; height: 32px; }
 .grid-item .label { font-size: 13px; }
-.grid-item.highlight { border: 2px solid #ef4444; border-radius: 12px; padding: 10px; color: #fff; }
+.grid-item.highlight { border: 2px solid var(--hl-border); border-radius: 12px; padding: 10px; background: var(--hl-bg); color: var(--hl-text); }
+.grid-item.highlight .label { font-weight: 800; color: var(--hl-text); }
