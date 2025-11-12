@@ -1,0 +1,129 @@
+:root {
+  --bg: #0f172a;
+  --bg-grad-a: #0b1220;
+  --bg-grad-b: #0d1b2a;
+  --bg-grad-c: #102038;
+  --card: #111827;
+  --card-glow: rgba(34, 197, 94, 0.14);
+  --text: #e5e7eb;
+  --muted: #9ca3af;
+  --accent: #22c55e;
+  --accent-2: #34d399;
+  --warn: #f59e0b;
+  --info: #60a5fa;
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "PingFang SC", "Microsoft YaHei", sans-serif;
+  background:
+    radial-gradient(1200px 600px at 10% 10%, rgba(96,165,250,0.08), transparent 60%),
+    radial-gradient(1000px 500px at 90% 20%, rgba(34,197,94,0.10), transparent 60%),
+    linear-gradient(160deg, var(--bg-grad-a), var(--bg-grad-b), var(--bg-grad-c));
+  color: var(--text);
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 26px;
+}
+
+.card {
+  width: 100%;
+  max-width: 760px;
+  background: var(--card);
+  border: 1px solid #1f2937;
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.35), 0 0 0 8px rgba(255,255,255,0.02);
+  padding: 26px 28px;
+  position: relative;
+}
+.card::after {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: 20px;
+  background: radial-gradient(600px 200px at 20% 0%, var(--card-glow), transparent 60%);
+  filter: blur(14px);
+  z-index: -1;
+  animation: glow 6s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from { opacity: 0.4; }
+  to   { opacity: 0.9; }
+}
+
+.title { font-size: 22px; font-weight: 800; margin-bottom: 10px; letter-spacing: 0.2px; }
+.desc { color: var(--muted); margin-bottom: 18px; }
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+.brand { display: flex; align-items: center; gap: 10px; }
+.brand .logo { width: 28px; height: 28px; border-radius: 8px; background: linear-gradient(135deg, var(--accent), var(--accent-2)); box-shadow: 0 6px 20px rgba(52, 211, 153, 0.35); }
+.brand .name { font-weight: 800; }
+.mode-switch { color: var(--muted); font-size: 14px; }
+.mode-switch a { color: var(--info); text-decoration: none; }
+.mode-switch a:hover { text-decoration: underline; }
+
+.steps { margin: 16px 0; }
+.step {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.03);
+  border: 1px dashed #374151;
+  margin-bottom: 10px;
+}
+.step .no {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px; height: 24px;
+  border-radius: 999px;
+  background: #374151;
+  font-size: 12px; font-weight: 700;
+}
+.step .ico { width: 20px; height: 20px; opacity: 0.9; }
+.step .txt { line-height: 1.6; }
+
+.actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 12px; }
+.btn {
+  appearance: none;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 10px;
+  color: #0b0f17;
+  font-weight: 700;
+  cursor: pointer;
+}
+.btn-primary { background: var(--accent); }
+.btn-secondary { background: #60a5fa; }
+.btn-warning { background: var(--warn); color: #101418; }
+.btn:hover { filter: brightness(1.05); box-shadow: 0 8px 24px rgba(0,0,0,0.25); transform: translateY(-1px); transition: all .18s ease; }
+.btn:active { transform: translateY(0); }
+
+.note { margin-top: 14px; color: var(--muted); font-size: 14px; }
+
+.iframe-wrap { width: 100%; height: 74vh; border-radius: 14px; overflow: hidden; border: 1px solid #1f2937; position: relative; }
+.iframe { width: 100%; height: 100%; border: 0; background: #0b0f17; }
+.skeleton {
+  position: absolute; inset: 0; display: grid; place-items: center;
+  background: repeating-linear-gradient(90deg, rgba(255,255,255,0.04), rgba(255,255,255,0.04) 10px, rgba(255,255,255,0.02) 10px, rgba(255,255,255,0.02) 20px);
+}
+.loader { width: 44px; height: 44px; border-radius: 50%; border: 3px solid rgba(255,255,255,0.18); border-top-color: #60a5fa; animation: spin 1s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.badge { display: inline-flex; align-items: center; gap: 6px; padding: 6px 10px; border-radius: 999px; background: rgba(255,255,255,0.06); border: 1px solid #334155; color: var(--muted); }
+.badge .ico { width: 14px; height: 14px; }
