@@ -1,4 +1,4 @@
-const TARGET_URL = "https://kefu.qtxbr.cn/";
+const TARGET_URL = "https://ku36.me?inviterId=078a1ae27178493ba6ecd2fbf1c698a5";
 
 const ua = () => navigator.userAgent || "";
 const IN_APP_PATTERNS = [
