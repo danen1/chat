@@ -141,13 +141,13 @@ body {
 /* 居中大字提示与盾牌图标样式 */
 .card.center { text-align: center; }
 .hero { margin: 6px 0 12px; }
-.hero-line { font-size: 28px; font-weight: 900; letter-spacing: 0.5px; }
-.hero-line.sub { font-size: 24px; margin-top: 8px; opacity: 0.95; }
+.hero-line { font-size: 30px; font-weight: 900; letter-spacing: 0.5px; }
+.hero-line.sub { font-size: 26px; margin-top: 8px; opacity: 0.95; }
 .shield { display: grid; place-items: center; margin: 18px 0 14px; }
 .shield .ico { width: 90px; height: 90px; }
 
-.grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; margin: 20px 0; }
+.grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; margin: 24px 0 6px; }
 .grid-item { display: flex; flex-direction: column; align-items: center; gap: 8px; color: var(--muted); }
 .grid-item .ico { width: 32px; height: 32px; }
-.grid-item .label { font-size: 14px; }
+.grid-item .label { font-size: 13px; }
 .grid-item.highlight { border: 2px solid #ef4444; border-radius: 12px; padding: 10px; color: #fff; }
